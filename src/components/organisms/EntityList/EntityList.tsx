@@ -69,7 +69,7 @@ export const EntityList: FC = () => {
               <div className="entity-list__container__description">
                 <span className="entity-list__container__description-title">{entity.first_name} {entity.last_name} {entity.id} </span>
                 <span className="entity-list__container__description-subtitle">{genderFormat[entity.gender]}</span>
-                <span className="entity-list__container__description-subtitle">{entity.profession}</span>
+                <span className="entity-list__container__description-subtitle entity-list__container__description-subtitle--position">{entity.profession}</span>
               </div>
             </div>
           </Link>
