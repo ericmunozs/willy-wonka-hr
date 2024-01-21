@@ -1,20 +1,53 @@
-/* OompaLoompaDetails.css */
-
-.oompa-details-container {
+.oompa-details__container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px;
 }
 
-.oompa-details-image img {
+.oompa-details__image {
+  margin-right: 20px;
+}
+
+.oompa-details__image img {
   max-width: 100%;
+  padding-bottom: 20px;
   height: auto;
 }
 
-.oompa-details-info {
-  max-width: 60%;
-  /* Ajusta el ancho según tus necesidades */
+.oompa-details__info {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Puedes agregar más estilos según sea necesario */
+.oompa-details__info__title {
+  font-size: 1.2rem;
+  line-height: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.oompa-details__info__subtitle,
+.oompa-details__info__subtitle--position {
+  font-size: 0.8rem;
+  color: #858585;
+}
+
+.oompa-details__info__subtitle--position {
+  font-style: italic;
+  padding-bottom: 20px;
+}
+
+.oompa-details__info__description {
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .oompa-details__container {
+    flex-direction: column;
+  }
+
+  .oompa-details__info {
+    max-width: 100%;
+  }
+}

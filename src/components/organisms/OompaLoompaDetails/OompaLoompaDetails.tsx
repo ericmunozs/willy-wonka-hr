@@ -13,28 +13,24 @@ export const OompaLoompaDetails: React.FC = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    // Realiza el dispatch para obtener los detalles del Oompa Loompa con el ID proporcionado
     dispatch(fetchDetails(id))
   }, [dispatch, id])
-  // Obtén los detalles del Oompa Loompa del estado
 
   if (!oompaLoompaDetails) {
-    return <div>No details available</div>
+    return <div className=''>No details available</div>
   }
 
   return (
-    <div className="oompa-details-container">
-      {/* Imagen a la izquierda */}
-      <div className="oompa-details-image">
+    <div className="oompa-details__container">
+      <div className="oompa-details__image">
         <img src={oompaLoompaDetails.image} alt={oompaLoompaDetails.first_name} />
       </div>
 
-      {/* Información a la derecha */}
-      <div className="oompa-details-info">
-        <h2>{`${oompaLoompaDetails.first_name} ${oompaLoompaDetails.last_name}`}</h2>
-        <span>Gender: {genderFormat[oompaLoompaDetails.gender]}</span>
-        <span>Position: {oompaLoompaDetails.profession}</span>
-        <span>Description: {oompaLoompaDetails.description}</span>
+      <div className="oompa-details__info">
+        <h3 className='oompa-details__info__title'>{`${oompaLoompaDetails.first_name} ${oompaLoompaDetails.last_name}`}</h3>
+        <span className='oompa-details__info__subtitle'>{genderFormat[oompaLoompaDetails.gender]}</span>
+        <span className='oompa-details__info__subtitle--position'>{oompaLoompaDetails.profession}</span>
+        <p className='oompa-details__info__description' dangerouslySetInnerHTML={{ __html: oompaLoompaDetails.description }} />
       </div>
     </div>
   )
