@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { fetchDetails, selectDetails } from '../../../store/slices/DetailsSlice'
+import { fetchDetailsThunk, selectDetails } from '../../../store/slices/DetailsSlice'
 import { type EGender } from '../../../types/oompaLoompa'
 import { genderFormat } from '../../../utils/genderFormat'
 import { sanitizeHTML } from '../../../utils/sanitizeHTML'
@@ -17,7 +17,7 @@ export const EntityDetails: React.FC = () => {
     window.scrollTo(0, 0)
 
     if (id !== undefined) {
-      dispatch(fetchDetails(Number(id)) as any)
+      dispatch(fetchDetailsThunk(Number(id)) as any)
     }
   }, [dispatch, id])
 

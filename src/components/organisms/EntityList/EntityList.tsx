@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { clearCache, fetchList, selectCurrentPage, selectError, selectLastFetchTime, selectList, selectLoading, setLastFetchTime } from '../../../store/slices/ListSlice'
+import { clearCache, fetchListThunk, selectCurrentPage, selectError, selectLastFetchTime, selectList, selectLoading, setLastFetchTime } from '../../../store/slices/ListSlice'
 import { selectSearch } from '../../../store/slices/SearchSlice'
 import { genderFormat } from '../../../utils/genderFormat'
 import { isMoreThanOneDayAgo, type IIsMoreThanOneDayAgo } from '../../../utils/isMoreThanOneDayAgo'
@@ -27,7 +27,7 @@ export const EntityList: FC = () => {
   useEffect(() => {
     if (entityLastFetchTime === null || entityLastFetchTime === undefined || isMoreThanOneDayAgo(entityLastFetchTime as unknown as IIsMoreThanOneDayAgo) as boolean) {
       dispatch(clearCache())
-      dispatch(fetchList(1) as any)
+      dispatch(fetchListThunk(1) as any)
       dispatch(setLastFetchTime())
     }
   }, [])
@@ -38,7 +38,7 @@ export const EntityList: FC = () => {
 
       if ((Math.ceil(scrollTop) + clientHeight) >= scrollHeight && !hasLoaded && searchQuery === '') {
         setHasLoaded(true)
-        dispatch(fetchList(entityCurrentPage) as any)
+        dispatch(fetchListThunk(entityCurrentPage) as any)
       }
     }
 

@@ -1,7 +1,8 @@
-import { createSlice, createAsyncThunk, type AsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { type RootState } from '../store'
+import { fetchList } from '../../api/services'
 import { type IOompaLoompa } from '../../types/oompaLoompa'
+import { type RootState } from '../store'
 
 interface IListState {
   data: IOompaLoompa[]
@@ -19,17 +20,7 @@ const initialState: IListState = {
   lastFetchTime: undefined
 }
 
-const API_BASE_URL = 'https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/oompa-loompas'
-
-export const fetchList: AsyncThunk<string, number, Record<string, unknown>> = createAsyncThunk(
-  'FETCH_LIST', async (page: number) => {
-    const response = await fetch(`${API_BASE_URL}?page=${page}`)
-    if (!response.ok) {
-      throw new Error('Failed to fetch Oompa Loompa List')
-    }
-    const data = await response.json()
-    return data.results
-  })
+export const fetchListThunk = createAsyncThunk('FETCH_LIST', fetchList)
 
 export const ListSlice = createSlice({
   name: 'list',
@@ -46,16 +37,16 @@ export const ListSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchList.pending, state => {
+      .addCase(fetchListThunk.pending, state => {
         state.loading = true
         state.error = null
       })
-      .addCase(fetchList.fulfilled, (state, action) => {
+      .addCase(fetchListThunk.fulfilled, (state, action) => {
         state.loading = false
         state.data = [...state.data, ...action.payload] as unknown as IOompaLoompa[]
         state.currentPage = state.currentPage + 1
       })
-      .addCase(fetchList.rejected, (state, action) => {
+      .addCase(fetchListThunk.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message ?? 'Something went wrong'
       })
