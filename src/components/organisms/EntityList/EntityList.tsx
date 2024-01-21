@@ -36,7 +36,7 @@ export const EntityList: FC = () => {
     const handleScroll = (): void => {
       const { scrollTop, clientHeight, scrollHeight } = document.documentElement
 
-      if ((Math.ceil(scrollTop) + clientHeight) >= scrollHeight && !hasLoaded && searchQuery === '') {
+      if ((Math.ceil(scrollTop) + clientHeight) >= scrollHeight && !hasLoaded && searchQuery.length === 0) {
         setHasLoaded(true)
         dispatch(fetchListThunk(entityCurrentPage) as any)
       }
@@ -46,7 +46,7 @@ export const EntityList: FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [dispatch, entityCurrentPage, hasLoaded])
+  }, [dispatch, entityCurrentPage, hasLoaded, searchQuery])
 
   useEffect(() => {
     setHasLoaded(false)
