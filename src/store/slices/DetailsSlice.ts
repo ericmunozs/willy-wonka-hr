@@ -27,6 +27,7 @@ export const DetailsSlice = createSlice({
       .addCase(fetchDetailsThunk.pending, (state) => {
         state.loading = true
         state.error = null
+        state.data = null
       })
       .addCase(fetchDetailsThunk.fulfilled, (state, action) => {
         state.loading = false
