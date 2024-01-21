@@ -1,9 +1,9 @@
 import { type FC } from 'react'
 
-import { OompaLoompaDetails } from '../../components/organisms/OompaLoompaDetails/OompaLoompaDetails'
+import { EntityDetails } from '../../components/organisms/EntityDetails/EntityDetails'
 
 export const DetailsPage: FC = () => {
   return (
-    <OompaLoompaDetails />
+    <EntityDetails />
   )
 }
