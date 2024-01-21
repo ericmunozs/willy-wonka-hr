@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Oompa Loompa Management Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary
 
-Currently, two official plugins are available:
+This web application manages the Oompa Loompa team at Willy Wonka's chocolate factory. The application assists the Human Resources department in listing workers, viewing details, and filtering by name and/or profession.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+Clone the repository:
+\```bash
+git clone https://github.com/ericmunozs/willy-wonka-hr.git
+cd willy-wonka-hr
+npm install
+\```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Usage
 
-- Configure the top-level `parserOptions` property like this:
+Start the development server:
+\```bash
+npm start
+\```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Open your browser and go to [http://localhost:5173/](http://localhost:5173/) to view the application.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Views
+
+### Main View
+
+- List of Oompa Loompas with endless scroll or pagination.
+- Real-time filtering by profession and name.
+
+### Detail View
+
+- Displays detailed information about a selected Oompa Loompa.
+- Interpretation of HTML descriptions.
+- Icon to return to the Main View (NavBar).
+
+## Notes
+
+- Application reviewed in the latest version of Google Chrome for desktop and mobile (responsive).
+- Code organized for readability and maintenance.
+- Atomic design for component structure.
+- BEM for CSS class naming.
+- ReactJS, react-redux implemented as required.
+- React-persist for storing data in the browser, along with a function (isMoreThanOneDayAgo) to avoid re-fetching the list until 1 day has passed.
+- Tests in a couple of components (services and NavBar) with vitest and react-testing-library.
+- Scroll-to-top functionality (arrow displayed bottom-right).
+- Favicon.
+- 404 error page.
+
+## Known Issues
+
+- Couldn't implement more tests due to lack of time and issues with react-redux.
+- Couldn't implement persistence on the details page due to lack of time.
