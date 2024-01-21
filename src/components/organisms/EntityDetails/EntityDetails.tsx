@@ -26,16 +26,16 @@ export const EntityDetails: React.FC = () => {
   }
 
   return (
-    <div className="oompa-details__container">
-      <div className="oompa-details__image">
+    <div className="entity-details__container">
+      <div className="entity-details__image">
         <img src={entityDetails.image} alt={entityDetails.first_name} />
       </div>
 
-      <div className="oompa-details__info">
-        <h3 className='oompa-details__info__title'>{`${entityDetails.first_name} ${entityDetails.last_name}`}</h3>
-        <span className='oompa-details__info__subtitle'>{genderFormat[entityDetails.gender as EGender]}</span>
-        <span className='oompa-details__info__subtitle--position'>{entityDetails.profession}</span>
-        <p className='oompa-details__info__description' dangerouslySetInnerHTML={{ __html: sanitizeHTML(entityDetails.description) }} />
+      <div className="entity-details__info">
+        <h3 className='entity-details__info__title'>{`${entityDetails.first_name} ${entityDetails.last_name}`}</h3>
+        <span className='entity-details__info__subtitle'>{genderFormat[entityDetails.gender as EGender]}</span>
+        <span className='entity-details__info__subtitle--position'>{entityDetails.profession}</span>
+        <p className='entity-details__info__description' dangerouslySetInnerHTML={{ __html: sanitizeHTML(entityDetails.description) }} />
       </div>
     </div>
   )
