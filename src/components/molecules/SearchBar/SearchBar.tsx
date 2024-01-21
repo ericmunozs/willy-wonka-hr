@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { setSearchQuery } from '../../../store/slices/searchSlice'
+import { setSearchQuery } from '../../../store/slices/SearchSlice'
 import { type RootState } from '../../../store/store'
 import './SearchBar.css'
 
@@ -11,7 +11,7 @@ export const SearchBar: React.FC = () => {
   const dispatch = useDispatch()
   const searchQuery = useSelector((state: RootState) => state.search.query)
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch(setSearchQuery(e.target.value))
   }
 
