@@ -1,0 +1,20 @@
+/* OompaLoompaDetails.css */
+
+.oompa-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.oompa-details-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.oompa-details-info {
+  max-width: 60%;
+  /* Ajusta el ancho según tus necesidades */
+}
+
+/* Puedes agregar más estilos según sea necesario */

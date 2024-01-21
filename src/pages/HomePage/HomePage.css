@@ -1,0 +1,14 @@
+.home-page {
+
+  h1,
+  h2 {
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  h2 {
+    margin-bottom: 75px;
+  }
+}

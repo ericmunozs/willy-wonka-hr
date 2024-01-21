@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #D8D8D8;
+  color: #333;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 40px;
+  overflow: hidden;
+  padding: 10px 10%;
+}
+
+.navbar__link {
+  display: flex;
+  height: 100%;
+  margin-right: 24px;
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 18px;
+}
