@@ -4,14 +4,10 @@ import { type RootState } from '../store'
 
 interface OompaLoompaState {
   query: string
-  loading: boolean
-  error: string | null
 }
 
 const initialState: OompaLoompaState = {
-  query: '',
-  loading: false,
-  error: null
+  query: ''
 }
 
 export const SearchSlice = createSlice({
@@ -24,5 +20,5 @@ export const SearchSlice = createSlice({
   }
 })
 
-export const selectSearch = (state: RootState) => state.search.query
+export const selectSearch = (state: RootState): string => state.search.query
 export const { setSearchQuery } = SearchSlice.actions
