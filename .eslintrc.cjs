@@ -14,7 +14,9 @@ module.exports = {
       },
       "files": [
         ".eslintrc.{js,cjs}",
-        "!vite.config.ts"
+        "!vite.config.ts",
+        "vitest.config.ts",
+        "setupTests.ts"
       ],
       "parserOptions": {
         "sourceType": "script"
