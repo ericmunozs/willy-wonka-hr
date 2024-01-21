@@ -2,7 +2,7 @@ import { type IOompaLoompa, type IOompaLoompasDetails } from '../types/oompaLoom
 import { API_BASE_URL } from './config'
 
 export const fetchList = async (page: number): Promise<IOompaLoompa[]> => {
-  const response = await fetch(`${API_BASE_URL}?page=${page}`)
+  const response: Response = await fetch(`${API_BASE_URL}?page=${page}`)
   if (!response.ok) {
     throw new Error('Failed to fetch Oompa Loompa List')
   }
@@ -11,8 +11,9 @@ export const fetchList = async (page: number): Promise<IOompaLoompa[]> => {
 }
 
 export const fetchDetails = async (id: number): Promise<IOompaLoompasDetails> => {
-  const response = await fetch(`${API_BASE_URL}/${id}`)
-  if (!response.ok) {
+  const response: Response = await fetch(`${API_BASE_URL}/${id}`)
+
+  if (!response.ok || id === 0 || isNaN(id)) {
     throw new Error('Failed to fetch Oompa Loompa details')
   }
   const data: IOompaLoompasDetails = await response.json()

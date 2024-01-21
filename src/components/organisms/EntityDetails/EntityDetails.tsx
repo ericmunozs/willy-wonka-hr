@@ -22,7 +22,7 @@ export const EntityDetails: React.FC = () => {
   }, [dispatch, id])
 
   if (entityDetails === null || entityDetails === undefined) {
-    return <div className=''>No details available</div>
+    return <div>No details available</div>
   }
 
   return (
