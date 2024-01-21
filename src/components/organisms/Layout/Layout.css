@@ -4,15 +4,3 @@
   min-height: 100vh;
   padding: 40px 10%;
 }
-
-@media only screen and (max-width: 768px) {
-  .oompa-item {
-    width: calc(50% - 20px);
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .oompa-item {
-    width: 100%;
-  }
-}
