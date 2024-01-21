@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { type RootState } from '../store'
 
-interface OompaLoompaState {
+interface ISearchState {
   query: string
 }
 
-const initialState: OompaLoompaState = {
+const initialState: ISearchState = {
   query: ''
 }
 

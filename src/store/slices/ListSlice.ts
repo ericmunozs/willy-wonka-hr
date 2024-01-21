@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk, type AsyncThunk } from '@reduxjs/toolkit
 import { type RootState } from '../store'
 import { type IOompaLoompa } from '../../types/oompaLoompa'
 
-interface State {
+interface IListState {
   data: IOompaLoompa[]
   currentPage: number
   loading: boolean
@@ -11,7 +11,7 @@ interface State {
   lastFetchTime?: string
 }
 
-const initialState: State = {
+const initialState: IListState = {
   data: [],
   currentPage: 7,
   loading: false,

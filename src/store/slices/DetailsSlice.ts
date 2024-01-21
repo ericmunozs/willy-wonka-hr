@@ -3,13 +3,13 @@ import { createAsyncThunk, createSlice, type AsyncThunk } from '@reduxjs/toolkit
 import { type IOompaLoompasDetails } from '../../types/oompaLoompa'
 import { type RootState } from '../store'
 
-interface State {
+interface IDetailsState {
   data: IOompaLoompasDetails | null
   loading: boolean
   error: string | null
 }
 
-const initialState: State = {
+const initialState: IDetailsState = {
   data: null,
   loading: false,
   error: null
