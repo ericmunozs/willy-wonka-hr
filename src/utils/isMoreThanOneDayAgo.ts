@@ -1,10 +1,12 @@
 import { type FC } from 'react'
 
-type IisMoreThanOneDayAgo = (lastFetchTime: string) => boolean
+export interface IIsMoreThanOneDayAgo {
+  lastFetchTime: string
+}
 
-export const isMoreThanOneDayAgo: FC<IisMoreThanOneDayAgo> = (lastFetchTime) => {
+export const isMoreThanOneDayAgo: FC<IIsMoreThanOneDayAgo> = (lastFetchTime): boolean => {
   const oneDayInMilliseconds = 10000
-  // Descomentar al finalizar el test
+  // Uncomment when finish QA and remove the line above
   // const oneDayInMilliseconds = 24 * 60 * 60 * 1000
   const currentTime = new Date().getTime()
 

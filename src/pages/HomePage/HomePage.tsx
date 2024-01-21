@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import { type FC } from 'react'
 
 import { SearchBar } from '../../components/molecules/SearchBar/SearchBar'
-import { OompaLoompaList } from '../../components/organisms/OompaLoompaList/OompaLoompaList'
+import { EntityList } from '../../components/organisms/EntityList/EntityList'
 import './HomePage.css'
 
-export const HomePage: React.FC = () => {
+export const HomePage: FC = () => {
   return (
     <div className='home-page'>
       <SearchBar />
       <h1>Find your Oompa Loompa</h1>
       <h2>There are more than 100k </h2>
-      <OompaLoompaList />
+      <EntityList />
     </div>
   )
 }

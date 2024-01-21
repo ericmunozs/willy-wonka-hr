@@ -1,4 +1,4 @@
-.oompa-list {
+.entity-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -6,59 +6,59 @@
   height: 100vh;
 }
 
-.oompa-item:hover .oompa-container__description-title {
+.entity-list__item:hover .entity-list__container__description-title {
   color: #00bbbb;
 }
 
-.oompa-item {
+.entity-list__item {
   width: 30%;
   margin-bottom: 20px;
   cursor: pointer;
 }
 
-.oompa-item--loading {
+.entity-list__item--loading {
   width: 100%;
   cursor: default;
 }
 
-.oompa-container {
+.entity-list__container {
   text-align: left;
   display: flex;
   flex-direction: column;
 }
 
-.oompa-container__image {
+.entity-list__container__image {
   max-width: 100%;
   height: auto;
 }
 
-.oompa-container__description {
+.entity-list__container__description {
   padding: 10px 0;
   display: flex;
   flex-direction: column;
 }
 
-.oompa-container__description-title {
+.entity-list__container__description-title {
   font-size: 1rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 0.1rem;
 }
 
-.oompa-container__description-subtitle {
+.entity-list__container__description-subtitle {
   font-size: 0.8rem;
   color: #777;
   margin-bottom: 0.1rem;
 }
 
 @media only screen and (max-width: 768px) {
-  .oompa-item {
+  .entity-list__item {
     width: 48%;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .oompa-item {
+  .entity-list__item {
     width: 100%;
   }
 }
