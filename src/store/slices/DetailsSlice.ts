@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, type AsyncThunk } from '@reduxjs/toolkit'
 
-import { type RootState } from '../store'
 import { type IOompaLoompasDetails } from '../../types/oompaLoompa'
+import { type RootState } from '../store'
 
 interface State {
   data: IOompaLoompasDetails | null
@@ -17,9 +17,9 @@ const initialState: State = {
 
 const API_BASE_URL = 'https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/oompa-loompas'
 
-export const fetchDetails = createAsyncThunk(
+export const fetchDetails: AsyncThunk<string, number, Record<string, unknown>> = createAsyncThunk(
   'FETCH_DETAILS',
-  async (id: string) => {
+  async (id: number) => {
     const response = await fetch(`${API_BASE_URL}/${id}`)
     if (!response.ok) {
       throw new Error('Failed to fetch Oompa Loompa details')
@@ -41,15 +41,15 @@ export const DetailsSlice = createSlice({
       })
       .addCase(fetchDetails.fulfilled, (state, action) => {
         state.loading = false
-        state.data = action.payload
+        state.data = action.payload as unknown as IOompaLoompasDetails
       })
       .addCase(fetchDetails.rejected, (state, action) => {
         state.loading = false
-        state.error = action.error.message || 'Something went wrong'
+        state.error = action.error.message ?? 'Something went wrong'
       })
   }
 })
 
-export const selectDetails = (state: RootState) => state.details.data
-export const selectLoading = (state: RootState) => state.details.loading
-export const selectError = (state: RootState) => state.details.error
+export const selectDetails = (state: RootState): IOompaLoompasDetails | null => state.details.data
+export const selectLoading = (state: RootState): boolean => state.details.loading
+export const selectError = (state: RootState): string | null => state.details.error
